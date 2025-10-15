@@ -9,6 +9,19 @@ There are a few things to consider before we can begin development. Concerning t
 
 In addition to these considerations, it is crucial to evaluate how scalability and security will influence our decision, as they are integral to the overall effectiveness of the chosen approach. A server-based approach naturally lends itself to easier scalability, as additional computing resources can be allocated as the user base grows, which is a critical factor in our decision-making process. In contrast, local device processing may struggle to handle heavier workloads without significant optimization. Conversely, a device-based approach offers greater resilience against widespread outages, ensuring each user’s application remains functional even if the central server fails, which is an important consideration in our decision-making. From a security standpoint, implementing robust encryption and authentication measures is crucial in either model to safeguard sensitive scheduling data, directly impacting our choice of approach. Ultimately, our design choice should be guided by balancing user convenience, data security, performance efficiency, and long-term maintainability, while carefully considering the scalability and resilience benefits of each approach.
 
+# Research
+
+Normurodov, E., & Ayoobkhan, M. U. A. (2021). Dynamic Time Tracking and Task Monitoring Agent Service. In 2021 International Conference on Technological Advancements and Innovations (ICTAI) (pp. 622–626). IEEE. https://doi.org/10.1109/ictai53825.2021.9673299  
+
+Singh, N. T., None Preeti, Kumar, R., Anish Choubey, Suresh, N., & Singh, J. (2024). An All-Inclusive Daily Task Tracker App for Enhancing College Student Productivity. In 2024 15th International Conference on Computing Communication and Networking Technologies (ICCCNT) (pp. 1–5). IEEE.  https://doi.org/10.1109/icccnt61001.2024.10724109 
+
+Sureshkumar, S., Suryavarshini, S., Chellammal, P., Murugan, K. R. S., Rani, P. K., & Kaviyaraj, R. (2023). Hourly Journal: A Mobile App for Optimizing Your Daily Routines. In 2023 7th International Conference on Intelligent Computing and Control Systems (ICICCS) (pp. 1073-1078). IEEE. https://doi.org/10.1109/ICICCS56967.2023.10142712   
+
+Yeo, J. L., JosephNg, P. S., Alezabi, K. A., Eaw, H. C., & Phan, K. Y. (2020). Time scheduling and finance management: University student survival kit. In 2020 IEEE Student Conference on Research and Development (SCOReD) (pp. 1–6). IEEE. https://doi.org/10.1109/SCOReD50371.2020.9250969  
+
+Zhao, W., et al. (2023). Design and implementation of a time management self-help mobile app for college students. In 2023 IEEE Integrated STEM Education Conference (ISEC) (pp. 81–88). IEEE. 
+https://doi.org/10.1109/ISEC57711.2023.10402177 
+
 
 # Planned API
 Radar(Google Maps alternative)
