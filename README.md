@@ -10,6 +10,10 @@ There are a few things to consider before we can begin development. Concerning t
 In addition to these considerations, it is crucial to evaluate how scalability and security will influence our decision, as they are integral to the overall effectiveness of the chosen approach. A server-based approach naturally lends itself to easier scalability, as additional computing resources can be allocated as the user base grows, which is a critical factor in our decision-making process. In contrast, local device processing may struggle to handle heavier workloads without significant optimization. Conversely, a device-based approach offers greater resilience against widespread outages, ensuring each user’s application remains functional even if the central server fails, which is an important consideration in our decision-making. From a security standpoint, implementing robust encryption and authentication measures is crucial in either model to safeguard sensitive scheduling data, directly impacting our choice of approach. Ultimately, our design choice should be guided by balancing user convenience, data security, performance efficiency, and long-term maintainability, while carefully considering the scalability and resilience benefits of each approach.
 
 
+# Planned API
+Radar(Google Maps alternative)
+Google Maps
+ChatGPT
 
 # Team Schedule
 <img width="679" height="557" alt="image" src="https://github.com/user-attachments/assets/050dce01-01b5-4efc-8e29-cfcf32e9161a" />
