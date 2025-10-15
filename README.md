@@ -30,6 +30,10 @@ ChatGPT
 
 # Team Schedule
 <img width="679" height="557" alt="image" src="https://github.com/user-attachments/assets/050dce01-01b5-4efc-8e29-cfcf32e9161a" />
+<img width="468" height="184" alt="image" src="https://github.com/user-attachments/assets/4647d531-d257-48c0-8a32-d63b0dbaf19b" />
+</br>
+<img width="468" height="206" alt="image" src="https://github.com/user-attachments/assets/24599933-40a3-4f0e-ab43-47fd57c041e6" />
+
 
 
 # Team Members
