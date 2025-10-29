@@ -1,0 +1,16 @@
+.header {
+  text-align: center;
+  padding: 20px;
+}
+
+.header h1 {
+  color: #333;
+}
+
+.header nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #007BFF;
+  text-align: center;
+  padding: 20px;
+}
