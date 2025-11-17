@@ -1,8 +1,9 @@
 .Footer {
-  border-top: 1px solid #e9e9e9;
-  background: #fafafa;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  background: transparent;
   padding: 18px 0;
   margin-top: 36px;
+  color: rgba(230,247,251,0.9);
 }
 
 .footer-inner {
@@ -17,13 +18,13 @@
 }
 
 .Footer p {
-  color: #666;
+  color: rgba(230,247,251,0.9);
   margin: 0;
   font-size: 0.95rem;
 }
 
 .footer-right {
-  color: #999;
+  color: rgba(230,247,251,0.75);
   font-size: 0.9rem;
 }
 

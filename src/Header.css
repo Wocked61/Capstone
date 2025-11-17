@@ -2,10 +2,11 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: #ffffffcc;
+  background: rgba(255,255,255,0.06);
+  color: #eaf8fb;
   backdrop-filter: blur(6px);
-  box-shadow: 0 1px 8px rgba(16,24,40,0.06);
-  padding: 12px 0;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  padding: 10px 0;
 }
 
 .header-inner {
@@ -20,9 +21,9 @@
 }
 
 .header h1 {
-  color: #215a6d;
+  color: #e6f7fb;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
 }
 
@@ -35,7 +36,7 @@
 .header-nav a {
   margin: 0;
   text-decoration: none;
-  color: #007BFF;
+  color: rgba(230,247,251,0.9);
   padding: 8px 12px;
   border-radius: 8px;
   transition: background .15s ease, color .15s ease, transform .08s ease;
@@ -44,8 +45,8 @@
 }
 
 .header-nav a:hover {
-  background: rgba(0,123,255,0.08);
-  color: #0056b3;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
   transform: translateY(-1px);
 }
 
