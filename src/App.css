@@ -12,6 +12,8 @@
 html, body, #root {
   height: 100%;
 }
+
+/* keep body styles */
 body {
   margin: 0;
   font-family: Inter, Arial, sans-serif;
@@ -23,12 +25,18 @@ body {
   box-sizing: border-box;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 .main-content {
   max-width: 1100px;
   margin: 28px auto;
   padding: 20px;
   box-sizing: border-box;
+  flex: 1 0 auto;
   display: block;
 }
 
