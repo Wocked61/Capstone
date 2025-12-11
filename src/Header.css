@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+.header-logo {
+  text-decoration: none;
+}
+
 .header h1 {
   color: #e6f7fb;
   margin: 0;
@@ -50,7 +54,20 @@
   transform: translateY(-1px);
 }
 
+
+.header-nav .login-link {
+  background: var(--blue-chaise);
+  color: #fff;
+  padding: 8px 16px;
+}
+
+.header-nav .login-link:hover {
+  background: var(--distant);
+  color: var(--carbide);
+}
+
 @media (max-width: 520px) {
   .header h1 { font-size: 0.95rem; }
   .header-nav a { padding: 6px 8px; font-size: 0.9rem; }
+  .header-nav .login-link { padding: 6px 12px; }
 }

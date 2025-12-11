@@ -1,14 +1,18 @@
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 function Header() {
   return (
     <header className="header">
       <div className="header-inner">
-        <h1>Capstone Project : Procuratio</h1>
+        <Link to="/" className="header-logo">
+          <h1>Capstone Project : Procuratio</h1>
+        </Link>
         <nav className="header-nav">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/login" className="login-link">Login</Link>
         </nav>
       </div>
     </header>
