@@ -6,12 +6,11 @@ function Header() {
     <header className="header">
       <div className="header-inner">
         <Link to="/" className="header-logo">
-          <h1>Capstone Project : Procuratio</h1>
+          <h1>Procuratio</h1>
         </Link>
         <nav className="header-nav">
           <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/about">Plan</Link>
           <Link to="/login" className="login-link">Login</Link>
         </nav>
       </div>
