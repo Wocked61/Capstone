@@ -23,16 +23,32 @@ Zhao, W., et al. (2023). Design and implementation of a time management self-hel
 https://doi.org/10.1109/ISEC57711.2023.10402177 
 
 
-# Planned API
-Radar(Google Maps alternative)
+# Planned API(s)
 Google Maps
-ChatGPT
+Google Gemini
+
+# Backups API(s)
+Radar(Google Maps alternative)
+ChatGPT (AI alternative)
 
 # Team Schedule
 <img width="679" height="557" alt="image" src="https://github.com/user-attachments/assets/050dce01-01b5-4efc-8e29-cfcf32e9161a" />
 <img width="468" height="184" alt="image" src="https://github.com/user-attachments/assets/4647d531-d257-48c0-8a32-d63b0dbaf19b" />
 </br>
 <img width="468" height="206" alt="image" src="https://github.com/user-attachments/assets/24599933-40a3-4f0e-ab43-47fd57c041e6" />
+
+
+# Webpage
+
+Homepage
+<img width="2528" height="1231" alt="image" src="https://github.com/user-attachments/assets/2791f475-3242-4f44-b6d3-63181e7c8f04" />
+<img width="2522" height="1230" alt="image" src="https://github.com/user-attachments/assets/fe1bb91e-0687-4fc0-a036-bb232bdaa519" />
+<img width="2525" height="1230" alt="image" src="https://github.com/user-attachments/assets/7f9f4d21-3e03-4a54-8aaa-61e223ba1347" />
+<img width="2530" height="1227" alt="image" src="https://github.com/user-attachments/assets/687bd578-d9d6-407a-a11b-1fb7748a0e71" />
+
+Login Page
+<img width="2555" height="1261" alt="image" src="https://github.com/user-attachments/assets/3c3e9ab7-c34e-48dc-b971-71db9d8c4bce" />
+
 
 
 
