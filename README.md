@@ -62,6 +62,12 @@ Login Page
 
 
 
+# How to run the program locally
+Change the directory to capstone, then run npm run dev, which should give you a link to open
+
+cd .\Capstone\
+npm run dev
+(open the link given to you)
 
 # Team Members
 * Dylan Phan
