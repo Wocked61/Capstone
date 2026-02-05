@@ -1,0 +1,55 @@
+const express = require('express');
+const User = require('../models/schemas');
+
+const router = express.Router();
+
+// User Signup
+router.post('/signup', async (req, res) => {
+  try {
+    const { username, password } = req.body; // get user credentials
+
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      return res.status(400).json({ message: 'User already exists' });
+    }
+
+    const newUser = new User({ username, password });
+    await newUser.save();
+
+    res.status(201).json({
+      message: 'User created successfully',
+      user: { id: newUser._id, username: newUser.username }
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
+
+// User Login
+router.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+
+    const existingUser = await User.findOne({ username });
+    if (!existingUser) {
+      return res.status(400).json({ message: 'Invalid credentials' });
+    }
+
+    const isMatch = await existingUser.comparePassword(password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Invalid credentials' });
+    }
+
+    res.json({
+      message: 'Login successful',
+      user: { id: existingUser._id, username: existingUser.username }
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
+
+module.exports = router;
