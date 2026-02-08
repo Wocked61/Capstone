@@ -1,7 +1,11 @@
 .plan {
-	padding: 48px 6vw 72px;
+	padding: 48px 4vw 72px;
 	color: #132024;
 	background: linear-gradient(140deg, #f5f0e6 0%, #f8faf0 55%, #f0f6fa 100%);
+	width: 100vw;
+	max-width: none;
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc(-50vw + 50%);
 	min-height: 100vh;
 	font-family: "Libre Baskerville", "Georgia", serif;
 }
@@ -89,12 +93,14 @@
 	background: #ffffff;
 	padding: 18px;
 	box-shadow: 0 16px 30px rgba(18, 31, 35, 0.12);
+	width: min(1800px, 100%);
+	margin: 0 auto;
 	overflow-x: auto;
 }
 
 .timetable-row {
 	display: grid;
-	grid-template-columns: 90px repeat(7, minmax(120px, 1fr));
+	grid-template-columns: 120px repeat(7, minmax(170px, 1fr));
 	gap: 8px;
 }
 
@@ -145,7 +151,7 @@
 	}
 
 	.timetable-row {
-		grid-template-columns: 70px repeat(7, minmax(110px, 1fr));
+		grid-template-columns: 90px repeat(7, minmax(130px, 1fr));
 	}
 }
 
