@@ -121,7 +121,7 @@
 }
 
 .timetable-cell {
-	min-height: 52px;
+	min-height: 20px;
 	background: #f5f4ee;
 	border-radius: 12px;
 	padding: 6px;
