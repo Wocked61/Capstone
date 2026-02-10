@@ -1,6 +1,6 @@
 .header {
   position: sticky;
-  top: 0;
+  top: auto;
   z-index: 40;
   background: var(--carbide);
   color: #eaf8fb;
