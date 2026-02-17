@@ -60,6 +60,10 @@ Homepage
 Login Page
 <img width="2555" height="1261" alt="image" src="https://github.com/user-attachments/assets/3c3e9ab7-c34e-48dc-b971-71db9d8c4bce" />
 
+Planning Page
+<img width="2527" height="1229" alt="image" src="https://github.com/user-attachments/assets/6d6c5376-5f01-4da2-a5b7-bcb14fc537da" />
+
+fixes that need to be implemented header name location, planning page sizing, map implementation, basic gemini chatbot functionality
 
 
 # How to run the program locally
