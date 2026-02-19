@@ -67,8 +67,10 @@ body {
 }
 
 .btn-primary {
-  background: var(--distant);
-  color: var(--carbide);
+
+  background: transparent;
+  color: var(--distant);
+  border: 2px solid var(--distant);
 }
 
 .btn-primary:hover {
