@@ -8,6 +8,7 @@ import Footer from './Footer.jsx'
 import Header from './Header.jsx'
 import Plan from './Plan.jsx'
 import Map from './Map.jsx'
+import Gemini from './Gemini.jsx'
 import './App.css'
 
 createRoot(document.getElementById('root')).render(
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/signup" element={<Signup />} />
           <Route path="/plan" element={<Plan />} />
           <Route path="/map" element={<Map />} />
+          <Route path="/gemini" element={<Gemini />} />
         </Routes>
       </main>
       <Footer />

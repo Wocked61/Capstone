@@ -1,0 +1,86 @@
+.gemini-page {
+  min-height: calc(100vh - 140px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.gemini-card {
+  width: 100%;
+  max-width: 760px;
+  background: #f7f9fc;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.gemini-sub {
+  margin-top: 0;
+  color: #4b5a6a;
+}
+
+.gemini-messages {
+  height: 420px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #d7e0ea;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.msg {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.msg span {
+  max-width: 80%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  line-height: 1.3;
+}
+
+.msg.user {
+  justify-content: flex-end;
+}
+
+.msg.user span {
+  background: #2f6ea5;
+  color: #fff;
+}
+
+.msg.assistant span {
+  background: #e8eef6;
+  color: #1f2d3a;
+}
+
+.gemini-form {
+  display: flex;
+  gap: 8px;
+}
+
+.gemini-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #c6d2de;
+  border-radius: 8px;
+}
+
+.gemini-form button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #2f6ea5;
+  color: #fff;
+  cursor: pointer;
+}
+
+.gemini-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.gemini-error {
+  color: #b00020;
+  margin: 0 0 8px 0;
+}
