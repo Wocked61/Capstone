@@ -1,172 +1,171 @@
 .plan {
-	padding: 48px 4vw 72px;
-	color: #132024;
-	background: linear-gradient(140deg, #f5f0e6 0%, #f8faf0 55%, #f0f6fa 100%);
-	width: auto;
-	max-width: none;
-	margin-left: calc(-50vw + 50%);
-	margin-right: calc(-50vw + 50%);
-	min-height: 100vh;
-	font-family: "Libre Baskerville", "Georgia", serif;
+    padding: 20px 28px 40px;
+    color: #132024;
+    background: linear-gradient(140deg, #f5f0e6 0%, #f8faf0 55%, #f0f6fa 100%);
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    min-height: auto;
+    font-family: "Libre Baskerville", "Georgia", serif;
 }
 
 .plan-header {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 24px;
-	justify-content: space-between;
-	align-items: flex-end;
-	margin-bottom: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 18px;
 }
 
 .plan-title {
-	font-size: clamp(2rem, 2vw + 1.5rem, 3rem);
-	margin: 0 0 8px;
-	letter-spacing: 0.03em;
+    font-size: clamp(1.8rem, 1.4vw + 1.2rem, 2.4rem);
+    margin: 0 0 4px;
+    letter-spacing: 0.03em;
 }
 
 .plan-subtitle {
-	margin: 0;
-	max-width: 520px;
-	color: #3b4a4f;
-	font-size: 1rem;
+    margin: 0;
+    max-width: 520px;
+    color: #3b4a4f;
+    font-size: 0.95rem;
 }
 
 .plan-form {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 12px;
-	align-items: flex-end;
-	background: #ffffff;
-	border: 1px solid #dbe3e1;
-	border-radius: 16px;
-	padding: 16px 18px;
-	box-shadow: 0 8px 20px rgba(19, 32, 36, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end;
+    background: #ffffff;
+    border: 1px solid #dbe3e1;
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 6px 16px rgba(19, 32, 36, 0.08);
 }
 
 .plan-label {
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-	font-size: 0.85rem;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	color: #526068;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #526068;
 }
 
 .plan-input,
 .plan-select {
-	border-radius: 10px;
-	border: 1px solid #c7d2cf;
-	padding: 8px 12px;
-	font-size: 0.95rem;
-	font-family: "Source Sans 3", "Segoe UI", sans-serif;
-	min-width: 160px;
+    border-radius: 8px;
+    border: 1px solid #c7d2cf;
+    padding: 7px 10px;
+    font-size: 0.9rem;
+    font-family: "Source Sans 3", "Segoe UI", sans-serif;
+    min-width: 140px;
 }
 
 .plan-input:focus,
 .plan-select:focus {
-	outline: 2px solid #f4b860;
-	border-color: #f4b860;
+    outline: 2px solid #f4b860;
+    border-color: #f4b860;
 }
 
 .plan-button {
-	border: none;
-	border-radius: 999px;
-	padding: 10px 20px;
-	background: #152a2e;
-	color: #fdf7ec;
-	font-size: 0.95rem;
-	cursor: pointer;
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 16px;
+    background: #152a2e;
+    color: #fdf7ec;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .plan-button:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 6px 16px rgba(21, 42, 46, 0.18);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(21, 42, 46, 0.18);
 }
 
 .timetable {
-	display: grid;
-	gap: 8px;
-	border-radius: 18px;
-	background: #ffffff;
-	padding: 12px;
-	box-shadow: 0 16px 30px rgba(18, 31, 35, 0.12);
-	width: min(1800px, 100%);
-	margin: 0 auto;
-	overflow-x: auto;
+    display: grid;
+    gap: 6px;
+    border-radius: 14px;
+    background: #ffffff;
+    padding: 8px;
+    box-shadow: 0 10px 20px rgba(18, 31, 35, 0.1);
+    width: 100%;
+    margin: 0;
+    overflow-x: auto;
 }
 
 .timetable-row {
-	display: grid;
-	grid-template-columns: 120px repeat(7, minmax(170px, 1fr));
-	gap: 8px;
+    display: grid;
+    grid-template-columns: 90px repeat(7, minmax(130px, 1fr)); 
+    gap: 6px; 
 }
 
 .timetable-header {
-	position: sticky;
-	top: 0;
-	background: #ffffff;
-	z-index: 1;
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    z-index: 1;
 }
 
 .timetable-time,
 .timetable-day {
-	font-size: 0.85rem;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	color: #6b7a7f;
-	padding: 8px 6px;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7a7f;
+    padding: 6px 4px;
 }
 
 .timetable-cell {
-	min-height: 20px;
-	background: #f5f4ee;
-	border-radius: 12px;
-	padding: 6px;
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-	border: 1px solid #e4e4dc;
+    min-height: 14px;
+    background: #f5f4ee;
+    border-radius: 10px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid #e4e4dc;
 }
 
 .timetable-chip {
-	background: linear-gradient(135deg, #f4b860, #ed9b64);
-	color: #2b1a0f;
-	padding: 6px 8px;
-	border-radius: 10px;
-	font-size: 0.85rem;
-	font-family: "Source Sans 3", "Segoe UI", sans-serif;
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, #f4b860, #ed9b64);
+    color: #2b1a0f;
+    padding: 4px 6px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-family: "Source Sans 3", "Segoe UI", sans-serif;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
 }
 
 @media (max-width: 900px) {
-	.plan {
-		padding: 32px 5vw 56px;
-	}
+    .plan {
+        padding: 16px 16px 28px;
+    }
 
-	.plan-form {
-		width: 100%;
-	}
+    .plan-form {
+        width: 100%;
+    }
 
-	.timetable-row {
-		grid-template-columns: 90px repeat(7, minmax(130px, 1fr));
-	}
+    .timetable-row {
+        grid-template-columns: 80px repeat(7, minmax(110px, 1fr));
+    }
 }
 
 @media (max-width: 640px) {
-	.plan-header {
-		align-items: stretch;
-	}
+    .plan-header {
+        align-items: stretch;
+    }
 
-	.plan-form {
-		flex-direction: column;
-		align-items: stretch;
-	}
+    .plan-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-	.plan-input,
-	.plan-select {
-		width: 100%;
-	}
+    .plan-input,
+    .plan-select {
+        width: 100%;
+    }
 }
