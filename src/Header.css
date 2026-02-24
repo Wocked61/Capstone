@@ -1,6 +1,6 @@
 .header {
   position: sticky;
-  top: auto;
+  top: 0;
   z-index: 40;
   background: var(--carbide);
   color: #eaf8fb;
@@ -9,9 +9,10 @@
 }
 
 .header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -78,6 +79,7 @@
 }
 
 @media (max-width: 520px) {
+  .header-inner { padding: 0 12px; }
   .header h1 { font-size: 0.95rem; }
   .header-logo { padding: 6px 8px; }
   .header-nav a { padding: 6px 8px; font-size: 0.9rem; }
