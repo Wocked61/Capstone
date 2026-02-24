@@ -5,37 +5,62 @@
  
 // let map;
 
-// async function initMap() {
-//   const { Map } = await google.maps.importLibrary("maps");
 
-//   map = new Map(document.getElementById("map"), {
-//     center: { lat: -34.397, lng: 150.644 },
-//     zoom: 8,
-//   });
-// }
 
-// initMap();
 
-// <!doctype html>
-// <!--
-//  @license
-//  Copyright 2019 Google LLC. All Rights Reserved.
-//  SPDX-License-Identifier: Apache-2.0
-// -->
-// <html>
-//   <head>
-//     <title>Simple Map</title>
-//   </head>
-//   <body>
-//     <div id="map"></div>
+import { useEffect, useRef, useState } from "react";
+import "./Map.css";
 
-//     <!-- prettier-ignore -->
-//     <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${
-//     c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-//         ({key: "INSERT_YOUR_API_KEY", v: "weekly"});</script>
-//   </body>
-// </html>
+let googleMapsScriptPromise;
 
+function loadGoogleMaps(apiKey) {
+  if (window.google?.maps) return Promise.resolve(window.google.maps);
+
+  if (!googleMapsScriptPromise) {
+    googleMapsScriptPromise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=weekly`;
+      script.async = true;
+      script.defer = true;
+      script.onload = () => resolve(window.google.maps);
+      script.onerror = () => reject(new Error("Google Maps failed to load."));
+      document.head.appendChild(script);
+    });
+  }
+
+  return googleMapsScriptPromise;
+}
+
+export default function Map() {
+  const mapRef = useRef(null);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
+    if (!apiKey) {
+      setError("Missing VITE_GOOGLE_MAPS_API_KEY in .env");
+      return;
+    }
+
+    loadGoogleMaps(apiKey)
+      .then((maps) => {
+        new maps.Map(mapRef.current, {
+          center: { lat: 34.0522, lng: -118.2437 },
+          zoom: 10,
+        });
+      })
+      .catch((e) => setError(e.message));
+  }, []);
+
+  if (error) return <p className="map-error">{error}</p>;
+
+  return (
+    <div className="map-wrapper">
+      <div id="map" ref={mapRef} />
+    </div>
+  );
+}
 
 // Dylan Phan, Helen Ngo, Vincent Nguyen< Matthew Lim
 // Copyright [2026] [Google LLC]

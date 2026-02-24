@@ -7,6 +7,7 @@ import Signup from './Signup.jsx'
 import Footer from './Footer.jsx'
 import Header from './Header.jsx'
 import Plan from './Plan.jsx'
+import Map from './Map.jsx'
 import './App.css'
 
 createRoot(document.getElementById('root')).render(
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/plan" element={<Plan />} />
+          <Route path="/map" element={<Map />} />
         </Routes>
       </main>
       <Footer />
