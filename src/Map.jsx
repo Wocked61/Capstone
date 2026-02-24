@@ -5,9 +5,6 @@
  
 // let map;
 
-
-
-
 import { useEffect, useRef, useState } from "react";
 import "./Map.css";
 

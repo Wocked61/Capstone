@@ -84,3 +84,9 @@
   color: #b00020;
   margin: 0 0 8px 0;
 }
+
+h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #2f6ea5;
+}
