@@ -17,8 +17,8 @@ function App() {
         <div className="hero-content">
           <h1>Smarter Scheduling. Better Living.</h1>
           <p className="hero-subtitle">
-            Meet <strong>Procuratio</strong> — an intelligent, AI-driven scheduling assistant 
-            that helps you balance academics, work, health, and personal life without the stress.
+            Meet <strong>TaskFast</strong> an intelligent, AI driven scheduling assistant 
+            that helps you balance academics, work, health, and personal life with ease.
           </p>
           <ul className="hero-features">
             <h1>Features</h1>
@@ -80,10 +80,10 @@ function App() {
 
       <section className="why-choose">
         <div className="why-content">
-          <h2 className="section-title">Why Choose Procuratio?</h2>
+          <h2 className="section-title">Why Choose TaskFast?</h2>
           <p className="why-intro">
             Students, professionals, and busy individuals often struggle with managing schedules.
-            <strong> Procuratio</strong> bridges the gap between time management and personal well-being.
+            <strong> TaskFast</strong> bridges the gap between time management and personal well-being.
           </p>
           <div className="why-grid">
             <div className="why-item">
