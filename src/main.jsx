@@ -1,4 +1,5 @@
 import { StrictMode } from 'react'
+import { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App.jsx'
@@ -11,14 +12,16 @@ import Map from './Map.jsx'
 import Gemini from './Gemini.jsx'
 import './App.css'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+function RootApp() {
+  const [loggedInUser, setLoggedInUser] = useState(null)
+
+  return (
     <BrowserRouter>
-      <Header />
+      <Header loggedInUser={loggedInUser} />
       <main className="main-content">
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/plan" element={<Plan />} />
           <Route path="/map" element={<Map />} />
@@ -27,5 +30,11 @@ createRoot(document.getElementById('root')).render(
       </main>
       <Footer />
     </BrowserRouter>
+  )
+}
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <RootApp />
   </StrictMode>,
 )

@@ -59,8 +59,6 @@ function Signup() {
         throw new Error(data.message || "Signup failed");
       }
 
-      localStorage.setItem("user", JSON.stringify(data.user)); // store user credentials
-
       navigate("/login"); // redirect to login page after successful signup
     } catch (err) {
       setError(err.message);

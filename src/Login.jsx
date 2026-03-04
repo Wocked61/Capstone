@@ -4,7 +4,7 @@ import "./Login.css";
 
 const API_URL = "http://localhost:4000/api";
 
-function Login() {
+function Login({ setLoggedInUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -35,9 +35,9 @@ function Login() {
         throw new Error(data.message || "Login failed");
       }
 
-      localStorage.setItem("user", JSON.stringify(data.user));
+      setLoggedInUser(data.user);
 
-      navigate("/"); // For now, it redirects back to home page, change this later 
+      navigate("/"); // Assuming that 
     } catch (err) {
       setError(err.message);
     } finally {

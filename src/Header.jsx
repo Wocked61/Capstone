@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Header.css'
 
-function Header() {
+function Header({ loggedInUser }) {
   return (
     <header className="header">
       <div className="header-inner">
@@ -12,9 +12,13 @@ function Header() {
           <Link to="/">Home</Link>
           <Link to="/Plan">Plan</Link>
           <Link to="/Map">Map</Link>
-          <Link to="/gemini" className="gemini-link">Gemini</Link>          
-          <Link to="/login" className="login-link">Login</Link>
-          <Link to="/signup" className="signup-link">Sign Up</Link>
+          <Link to="/gemini" className="gemini-link">Gemini</Link>
+          {loggedInUser ? (<span className="user-name">{loggedInUser.username}</span>) : (
+            <>
+              <Link to="/login" className="login-link">Login</Link>
+              <Link to="/signup" className="signup-link">Sign Up</Link>
+            </>
+          )}
         </nav>
       </div>
     </header>
