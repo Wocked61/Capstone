@@ -13,7 +13,7 @@ function Header({ loggedInUser }) {
           <Link to="/Plan">Plan</Link>
           <Link to="/Map">Map</Link>
           <Link to="/gemini" className="gemini-link">Gemini</Link>
-          {loggedInUser ? (<span className="user-name">{loggedInUser.username}</span>) : (
+          {loggedInUser ? (<span className="user-name">Hello {loggedInUser.username}!</span>) : (
             <>
               <Link to="/login" className="login-link">Login</Link>
               <Link to="/signup" className="signup-link">Sign Up</Link>

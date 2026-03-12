@@ -37,7 +37,7 @@ function Login({ setLoggedInUser }) {
 
       setLoggedInUser(data.user);
 
-      navigate("/"); // Assuming that 
+      navigate("/"); // redirect to homepage 
     } catch (err) {
       setError(err.message);
     } finally {
