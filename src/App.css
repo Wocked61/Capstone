@@ -21,6 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 #root {
@@ -100,8 +101,9 @@ body {
   min-height: 600px;
   height: 100vh;
   width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-top: -20px; /* compensate for any remaining gap */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 0;
   border-radius: 0; 
 }
 
