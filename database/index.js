@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routers');
+const geminiRoutes = require('./gemini-router');
 const mongoose = require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv');
@@ -21,6 +22,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use('/api/auth', authRoutes);
+app.use('/api/gemini', geminiRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
