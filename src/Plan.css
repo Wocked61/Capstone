@@ -128,6 +128,19 @@
     flex-direction: column;
     gap: 4px;
     border: 1px solid #e4e4dc;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.timetable-cell:hover {
+    background: #faf9f3;
+    border-color: #d4d4cc;
+}
+
+.timetable-cell.selected {
+    background: #e8f0f5;
+    border-color: #f4b860;
+    box-shadow: 0 0 0 2px rgba(244, 184, 96, 0.1);
 }
 
 .timetable-chip {
@@ -138,6 +151,12 @@
     font-size: 0.78rem;
     font-family: "Source Sans 3", "Segoe UI", sans-serif;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.timetable-chip:hover {
+    opacity: 0.85;
 }
 
 @media (max-width: 900px) {

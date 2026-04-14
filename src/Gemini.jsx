@@ -3,14 +3,13 @@ import "./Gemini.css";
 
 export default function Gemini() {
   const [messages, setMessages] = useState([
-    { role: "assistant", text: "Hi. This is Gemini test mode. Ask me anything." },
+    { role: "assistant", text: "Hi. Ask me anything." },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const endpoint = import.meta.env.VITE_GEMINI_ENDPOINT; // e.g. http://localhost:4000/api/gemini/chat
-  const testMode = import.meta.env.VITE_GEMINI_TEST_MODE === "true";
+  const endpoint = import.meta.env.VITE_GEMINI_ENDPOINT;
 
   async function handleSend(e) {
     e.preventDefault();
@@ -23,30 +22,27 @@ export default function Gemini() {
     setLoading(true);
 
     try {
-      // Local mock mode for UI testing
-      if (testMode || !endpoint) {
-        await new Promise((r) => setTimeout(r, 400));
-        setMessages((prev) => [
-          ...prev,
-          { role: "assistant", text: `Test reply: I received "${text}".` },
-        ]);
-        return;
-      }
+      if (!endpoint) throw new Error("Missing VITE_GEMINI_ENDPOINT configuration.");
 
-      // Real backend call (Gemini key must stay on server)
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text }),
       });
 
-      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      if (!res.ok) {
+        const errorDetail = await res.text();
+        throw new Error(`Backend error (${res.status}): ${errorDetail}`);
+      }
 
       const data = await res.json();
       const reply = data?.reply || "No reply returned.";
       setMessages((prev) => [...prev, { role: "assistant", text: reply }]);
     } catch (err) {
-      setError(err.message || "Something went wrong.");
+      const errorMsg = err.message || "Something went wrong.";
+      setError(errorMsg);
+      // Show error in chat as assistant message
+      setMessages((prev) => [...prev, { role: "assistant", text: `⚠️ Error: ${errorMsg}` }]);
     } finally {
       setLoading(false);
     }
@@ -55,10 +51,8 @@ export default function Gemini() {
   return (
     <div className="gemini-page">
       <div className="gemini-card">
-        <h2>Gemini Chat Test</h2>
-        <p className="gemini-sub">
-          Mode: <strong>{testMode || !endpoint ? "Mock (UI test)" : "Backend API"}</strong>
-        </p>
+        <h2>Gemini Chat</h2>
+        <p className="gemini-sub">Connected to backend API</p>
 
         <div className="gemini-messages">
           {messages.map((m, i) => (

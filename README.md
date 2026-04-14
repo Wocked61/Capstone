@@ -73,6 +73,11 @@ cd .\Capstone\
 npm run dev
 (open the link given to you)
 
+Change the directory to database, then run npm start, which should connect you to database
+
+cd .\Capstone\database\
+npm start
+
 # Team Members
 * Dylan Phan
 * Vincent Nguyen
