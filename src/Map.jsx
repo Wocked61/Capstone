@@ -10,9 +10,10 @@ import "./Map.css";
 
 let googleMapsScriptPromise;
 
+// Function to load the Google Maps JavaScript API
 function loadGoogleMaps(apiKey) {
   if (window.google?.maps) return Promise.resolve(window.google.maps);
-
+  // Script is loading => return the promise
   if (!googleMapsScriptPromise) {
     googleMapsScriptPromise = new Promise((resolve, reject) => {
       const script = document.createElement("script");
@@ -20,6 +21,7 @@ function loadGoogleMaps(apiKey) {
       script.async = true;
       script.defer = true;
       script.onload = () => resolve(window.google.maps);
+      // Handle script loading errors
       script.onerror = () => reject(new Error("Google Maps failed to load."));
       document.head.appendChild(script);
     });
@@ -28,18 +30,19 @@ function loadGoogleMaps(apiKey) {
   return googleMapsScriptPromise;
 }
 
+// React component to display the map
 export default function Map() {
   const mapRef = useRef(null);
   const [error, setError] = useState("");
-
+  // Run operations to set up and load the map
   useEffect(() => {
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-
+    // Check if the API key is provided
     if (!apiKey) {
       setError("Missing VITE_GOOGLE_MAPS_API_KEY in .env");
       return;
     }
-
+    // Load the Google Maps API and initialize the map
     loadGoogleMaps(apiKey)
       .then((maps) => {
         new maps.Map(mapRef.current, {
@@ -47,11 +50,12 @@ export default function Map() {
           zoom: 10,
         });
       })
+      // Handle errors that occur during the loading of the Google Maps API
       .catch((e) => setError(e.message));
   }, []);
-
+  // Display an error message if there was an issue loading the map
   if (error) return <p className="map-error">{error}</p>;
-
+  // Render the map container
   return (
     <div className="map-wrapper">
       <div id="map" ref={mapRef} />

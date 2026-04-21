@@ -11,6 +11,7 @@ import Header from './Header.jsx'
 import Plan from './Plan.jsx'
 import Map from './Map.jsx'
 import Gemini from './Gemini.jsx'
+import MergedDashboard from './merge.jsx'
 import './App.css'
 
 function RootApp() {
@@ -24,6 +25,7 @@ function RootApp() {
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser} />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<MergedDashboard />} />
           <Route path="/plan" element={<Plan />} />
           <Route path="/map" element={<Map />} />
           <Route path="/gemini" element={<Gemini />} />
