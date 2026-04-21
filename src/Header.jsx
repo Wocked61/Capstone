@@ -10,6 +10,7 @@ function Header({ loggedInUser }) {
         </Link>
         <nav className="header-nav">
           <Link to="/">Home</Link>
+          <Link to="/dashboard" className="dashboard-link">Dashboard</Link>
           <Link to="/Plan">Plan</Link>
           <Link to="/Map">Map</Link>
           <Link to="/gemini" className="gemini-link">Gemini</Link>
