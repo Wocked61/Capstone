@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './Header.css'
 
-function Header({ loggedInUser }) {
+
+function Header({ loggedInUser, setLoggedInUser }) {
+  const navigate = useNavigate()
+
+  const handleSignOut = () => {
+    localStorage.removeItem('loggedInUser')
+    setLoggedInUser(null)
+    navigate('/')
+  }
+
   return (
     <header className="header">
       <div className="header-inner">
@@ -10,11 +20,11 @@ function Header({ loggedInUser }) {
         </Link>
         <nav className="header-nav">
           <Link to="/">Home</Link>
-          <Link to="/dashboard" className="dashboard-link">Dashboard</Link>
           <Link to="/Plan">Plan</Link>
           <Link to="/Map">Map</Link>
           <Link to="/gemini" className="gemini-link">Gemini</Link>
-          {loggedInUser ? (<span className="user-name">Hello {loggedInUser.username}!</span>) : (
+          {loggedInUser ? (<><span className="user-name">Hello {loggedInUser.username}!</span>
+            <button type="button" className="signout-btn" onClick={handleSignOut}>Sign Out</button></>) : (
             <>
               <Link to="/login" className="login-link">Login</Link>
               <Link to="/signup" className="signup-link">Sign Up</Link>

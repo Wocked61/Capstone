@@ -84,10 +84,31 @@
   padding: 8px 12px;
 }
 
+.header-nav .signout-btn {
+  margin: 0;
+  background: transparent;
+  border: 0px solid rgba(230,247,251,0.4);
+  color: rgba(230,247,251,0.95);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, transform .08s ease;
+}
+
+
+.header-nav .signout-btn:hover {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 @media (max-width: 520px) {
   .header-inner { padding: 0 12px; }
   .header h1 { font-size: 0.95rem; }
   .header-logo { padding: 6px 8px; }
   .header-nav a { padding: 6px 8px; font-size: 0.9rem; }
   .header-nav .login-link { padding: 6px 12px; }
+  .header-nav .signout-btn { padding: 6px 8px; font-size: 0.9rem; }
 }

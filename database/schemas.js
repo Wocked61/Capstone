@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    expires: 60 // user credentials expire after 1 minute 
+    expires: 300 // user credentials expire after 5 minutes
   }
 });
 
