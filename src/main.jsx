@@ -15,11 +15,14 @@ import MergedDashboard from './merge.jsx'
 import './App.css'
 
 function RootApp() {
-  const [loggedInUser, setLoggedInUser] = useState(null)
+    const [loggedInUser, setLoggedInUser] = useState(() => {
+    const storedUser = localStorage.getItem('loggedInUser')
+    return storedUser ? JSON.parse(storedUser) : null
+  })
 
   return (
     <BrowserRouter>
-      <Header loggedInUser={loggedInUser} />
+      <Header loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
       <main className="main-content">
         <Routes>
           <Route path="/" element={<App />} />
