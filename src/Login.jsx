@@ -35,6 +35,7 @@ function Login({ setLoggedInUser }) {
         throw new Error(data.message || "Login failed");
       }
 
+      localStorage.setItem('loggedInUser', JSON.stringify(data.user)); // user stays logged in after refresh
       setLoggedInUser(data.user);
 
       navigate("/"); // redirect to homepage 
