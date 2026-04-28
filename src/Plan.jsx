@@ -157,7 +157,10 @@ const Plan = () => {
 		console.log("CLICKED");
 
   		const input = formatPlansForAI(plans);
+		console.log("INPUT:", input);
+
   		const result = await getSchedule(input);
+		console.log("RESULT:", result);
   		setAiSchedule(result);
 	};
 
