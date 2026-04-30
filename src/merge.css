@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+h2{
+  text-align: center;
+}
+
 .merged-dashboard {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
