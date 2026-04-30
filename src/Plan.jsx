@@ -32,6 +32,7 @@ const Plan = () => {
 	const [error, setError] = useState('')
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [showForm, setShowForm] = useState(false)
+	const [aiSchedule, setAiSchedule] = useState("");
 
 	// Load plans from localStorage on mount
 	useEffect(() => {
@@ -132,6 +133,48 @@ const Plan = () => {
 			fetchCalendarEvents(accessToken)
 		}
 	}, [accessToken, isLoggedIn])
+
+	async function getSchedule(input) {
+		try {
+			const res = await fetch("http://localhost:4000/api/gemini/chat", {
+    		method: "POST",
+    		headers: {
+      			"Content-Type": "application/json",
+    		},
+    		body: JSON.stringify({ message: input }),
+  		});
+
+		console.log("RESPONSE STATUS:", res.status);
+
+  		const data = await res.json();
+  		return data.reply;
+		} catch (err) {
+			console.error("FETCH ERROR:", err);
+			return "Error generating schedule";
+		}
+	}
+
+	function formatPlansForAI(plans) {
+  		return plans.map(p => `${p.day} ${p.time}: ${p.title}`).join("\n");
+	}
+
+	const handleGenerateAI = async () => {
+		console.log("CLICKED");
+
+		let input = formatPlansForAI(plans);
+
+		if (!input) {
+			input = "Create a balanced daily schedule including study, gym, and rest.";
+		}
+
+		console.log("INPUT:", input);
+
+  		const result = await getSchedule(input);
+		console.log("RESULT:", result);
+
+  		setAiSchedule(result);
+	};
+
 
 	const plansByCell = useMemo(() => {
 		const map = new Map()
@@ -269,6 +312,18 @@ const Plan = () => {
 							Logout
 						</button>
 					)}
+					
+					<button
+  						className="plan-button"
+  						onClick={handleGenerateAI}
+  						style={{
+    						padding: '10px 20px',
+    						marginBottom: '0px',
+    						backgroundColor: '#4caf50'
+  						}}
+					>
+  						Generate AI Schedule
+					</button>
 				</div>
 			</div>
 
@@ -421,6 +476,16 @@ const Plan = () => {
 					))}
 				</div>
 			)}
+
+			{aiSchedule && (
+				<div style={{ marginTop: '20px' }}>
+					<h3>AI Optimized Schedule</h3>
+					<pre style={{ whiteSpace: 'pre-wrap' }}>
+						{aiSchedule}
+					</pre>
+				</div>
+			)}
+
 		</section>
 	)
 }
