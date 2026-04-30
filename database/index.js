@@ -31,6 +31,6 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
 // Example of connection string: mongodb+srv://<db_username>:<db_password>@cluster0.wvdi4mr.mongodb.net/<database_name>?appName=Cluster0
 
 const port = process.env.PORT || 4000;
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
     console.log(`Server is running on port ${port}`);
 });
