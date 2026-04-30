@@ -135,18 +135,23 @@ const Plan = () => {
 	}, [accessToken, isLoggedIn])
 
 	async function getSchedule(input) {
-
-  		const res = await fetch("http://localhost:4000/api/gemini/chat", {
+		try {
+			const res = await fetch("http://localhost:4000/api/gemini/chat", {
     		method: "POST",
     		headers: {
-
       			"Content-Type": "application/json",
     		},
     		body: JSON.stringify({ message: input }),
   		});
 
+		console.log("RESPONSE STATUS:", res.status);
+
   		const data = await res.json();
   		return data.reply;
+		} catch (err) {
+			console.error("FETCH ERROR:", err);
+			return "Error generating schedule";
+		}
 	}
 
 	function formatPlansForAI(plans) {
@@ -156,11 +161,17 @@ const Plan = () => {
 	const handleGenerateAI = async () => {
 		console.log("CLICKED");
 
-  		const input = formatPlansForAI(plans);
+		let input = formatPlansForAI(plans);
+
+		if (!input) {
+			input = "Create a balanced daily schedule including study, gym, and rest.";
+		}
+
 		console.log("INPUT:", input);
 
   		const result = await getSchedule(input);
 		console.log("RESULT:", result);
+
   		setAiSchedule(result);
 	};
 
