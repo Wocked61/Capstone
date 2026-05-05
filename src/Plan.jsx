@@ -495,7 +495,7 @@ const Plan = forwardRef((props, ref) => {
 														handleDeletePlan(plan.id)
 													}}
 													style={{
-														marginLeft: '4px',
+														marginLeft: 'auto',
 														background: 'none',
 														border: 'none',
 														color: '#2b1a0f',

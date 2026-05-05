@@ -144,6 +144,8 @@
 }
 
 .timetable-chip {
+    display: flex;
+    align-items: center;
     background: linear-gradient(135deg, #f4b860, #ed9b64);
     color: #2b1a0f;
     padding: 4px 6px;
