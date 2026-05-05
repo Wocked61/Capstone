@@ -188,3 +188,39 @@
         width: 100%;
     }
 }
+
+.ai-output {
+    margin-top: 20px;
+    padding: 18px 20px;
+    background: #ffffff;
+    border: 1px solid #dbe3e1;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(19, 32, 36, 0.08);
+    line-height: 1.6;
+    max-width: 900px;
+}
+
+
+.ai-output h1,
+.ai-output h2,
+.ai-output h3 {
+    margin-top: 14px;
+    color: #132024;
+}
+
+
+.ai-output ul {
+    padding-left: 18px;
+}
+
+
+.ai-output li {
+    margin-bottom: 6px;
+    font-family: "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+
+.ai-output strong {
+    color: #152a2e;
+}
+
