@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, useImperativeHandle, forwardRef } from 'react'
 import { useGoogleLogin } from '@react-oauth/google'
 import './Plan.css'
 
@@ -33,7 +33,7 @@ const TIME_SLOTS = [
 
 const toCellKey = (day, time) => `${day}|${time}`
 
-const Plan = () => {
+const Plan = forwardRef((props, ref) => {
 	const [title, setTitle] = useState('')
 	const [selectedDay, setSelectedDay] = useState(DAYS[1])
 	const [selectedTime, setSelectedTime] = useState(TIME_SLOTS[3])
@@ -44,6 +44,25 @@ const Plan = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [showForm, setShowForm] = useState(false)
 	const [aiSchedule, setAiSchedule] = useState("");
+
+	// Expose function to apply schedule from Gemini
+	useImperativeHandle(ref, () => ({
+		applySchedule: (tasks) => {
+			try {
+				const newPlans = tasks.map(task => ({
+					id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+					title: task.title,
+					day: task.day,
+					time: task.time,
+				}))
+				setPlans(prev => [...prev, ...newPlans])
+				return newPlans.length
+			} catch (err) {
+				console.error('Error applying schedule:', err)
+				return 0
+			}
+		}
+	}), [])
 
 	// Load plans from localStorage on mount
 	useEffect(() => {
@@ -499,6 +518,6 @@ const Plan = () => {
 
 		</section>
 	)
-}
+})
 
 export default Plan

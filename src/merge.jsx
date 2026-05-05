@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import "./merge.css";
 import Plan from "./Plan";
@@ -7,6 +7,13 @@ import Map from "./Map";
 
 export default function MergedDashboard() {
   const [activeTab, setActiveTab] = useState("plan");
+  const planRef = useRef(null);
+
+  const handleApplySchedule = (tasks) => {
+    if (planRef.current) {
+      planRef.current.applySchedule(tasks);
+    }
+  };
 
   return (
     <div className="merged-dashboard">
@@ -34,12 +41,12 @@ export default function MergedDashboard() {
       <div className="dashboard-content">
         {activeTab === "plan" && (
           <div className="tab-content active">
-            <Plan />
+            <Plan ref={planRef} />
           </div>
         )}
         {activeTab === "chat" && (
           <div className="tab-content active">
-            <Gemini />
+            <Gemini onApplySchedule={handleApplySchedule} />
           </div>
         )}
         {activeTab === "map" && (
@@ -58,13 +65,13 @@ export default function MergedDashboard() {
             <div className="section-header">
               <h2>Weekly Plan</h2>
             </div>
-            <Plan />
+            <Plan ref={planRef} />
           </div>
 
           <div className="grid-section chat-section">
             <div className="section-header">
             </div>
-            <Gemini />
+            <Gemini onApplySchedule={handleApplySchedule} />
           </div>
 
           <div className="grid-section map-section">
