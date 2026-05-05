@@ -10,11 +10,6 @@ export default function MergedDashboard() {
 
   return (
     <div className="merged-dashboard">
-      <div className="dashboard-header">
-        <h1 className="dashboard-title">TaskFast Dashboard</h1>
-        <p className="dashboard-subtitle">Plan, Chat, and Visualize Your Tasks</p>
-      </div>
-
       <div className="dashboard-tabs">
         <button
           className={`tab-button ${activeTab === "plan" ? "active" : ""}`}
@@ -68,14 +63,12 @@ export default function MergedDashboard() {
 
           <div className="grid-section chat-section">
             <div className="section-header">
-              <h2>Chat Assistant</h2>
             </div>
             <Gemini />
           </div>
 
           <div className="grid-section map-section">
             <div className="section-header">
-              <h2>Location Map</h2>
             </div>
             <Map />
           </div>
