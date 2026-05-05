@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, useImperativeHandle, forwardRef } from 'react'
 import { useGoogleLogin } from '@react-oauth/google'
+import ReactMarkdown from 'react-markdown';
 import './Plan.css'
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -39,6 +40,7 @@ const Plan = forwardRef((props, ref) => {
 	const [selectedTime, setSelectedTime] = useState(TIME_SLOTS[3])
 	const [plans, setPlans] = useState([])
 	const [accessToken, setAccessToken] = useState(null)
+	const [loadingAI, setLoadingAI] = useState(false);
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState('')
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -189,12 +191,12 @@ const Plan = forwardRef((props, ref) => {
 	}
 
 	const handleGenerateAI = async () => {
-		console.log("CLICKED");
+		setLoadingAI(true);
 
 		let input = formatPlansForAI(plans);
 
 		if (!input) {
-			input = "Create a balanced daily schedule including study, gym, and rest.";
+			input = "Create a balanced daily schedule with simple time blocks.";
 		}
 
 		console.log("INPUT:", input);
@@ -203,6 +205,8 @@ const Plan = forwardRef((props, ref) => {
 		console.log("RESULT:", result);
 
   		setAiSchedule(result);
+
+		setLoadingAI(false);
 	};
 
 
@@ -354,6 +358,12 @@ const Plan = forwardRef((props, ref) => {
 					>
   						Generate AI Schedule
 					</button>
+
+					{loadingAI && (
+						<p style={{ marginTop: '10x' }}>
+							Generating AI schedule...
+						</p>
+					)}
 				</div>
 			</div>
 
@@ -510,9 +520,9 @@ const Plan = forwardRef((props, ref) => {
 			{aiSchedule && (
 				<div style={{ marginTop: '20px' }}>
 					<h3>AI Optimized Schedule</h3>
-					<pre style={{ whiteSpace: 'pre-wrap' }}>
-						{aiSchedule}
-					</pre>
+					<div className="ai-output">
+						<ReactMarkdown>{aiSchedule}</ReactMarkdown>
+					</div>
 				</div>
 			)}
 
